@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://idxa.africa/specs/identity/identity.profile.schema.json",
+  "title": "IDXA Identity Profile v0.1",
+  "description": "Consent-driven exchange of verified identity attributes. Carries claims, not raw identity documents; interoperable with national identity systems.",
+  "type": "object",
+  "required": ["subjectRef", "claims", "consent", "issuer"],
+  "properties": {
+    "subjectRef": {
+      "type": "string",
+      "description": "Pseudonymous reference to the data subject (never a raw national ID number on the wire)."
+    },
+    "issuer": {
+      "type": "object",
+      "required": ["memberId", "assuranceLevel"],
+      "properties": {
+        "memberId": { "type": "string", "description": "IDXA member ID of the verifying institution." },
+        "assuranceLevel": { "type": "string", "enum": ["low", "substantial", "high"], "description": "Identity assurance level achieved." },
+        "method": { "type": "string", "description": "e.g. document+liveness, national-id-lookup." }
+      }
+    },
+    "claims": {
+      "type": "object",
+      "description": "Only the attributes the subject consented to share.",
+      "properties": {
+        "fullNameVerified": { "type": "boolean" },
+        "dateOfBirthVerified": { "type": "boolean" },
+        "isOver18": { "type": "boolean" },
+        "addressVerified": { "type": "boolean" },
+        "livenessPassed": { "type": "boolean" }
+      },
+      "additionalProperties": true
+    },
+    "consent": {
+      "type": "object",
+      "required": ["grantedAt", "purpose"],
+      "properties": {
+        "grantedAt": { "type": "string", "format": "date-time" },
+        "purpose": { "type": "string", "description": "Stated purpose the subject consented to." },
+        "expiresAt": { "type": "string", "format": "date-time" }
+      }
+    }
+  }
+}

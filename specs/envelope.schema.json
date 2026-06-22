@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://idxa.africa/specs/envelope.schema.json",
+  "title": "IDXA Message Envelope",
+  "description": "The signed unit of exchange between IDXA Member Nodes. The signature covers the header and payload together.",
+  "type": "object",
+  "required": ["header", "payload", "signature"],
+  "properties": {
+    "header": {
+      "type": "object",
+      "required": ["messageId", "from", "to", "dataSpace", "contentType", "timestamp"],
+      "properties": {
+        "messageId": { "type": "string", "description": "Globally unique message identifier." },
+        "from": { "type": "string", "description": "Sender member ID." },
+        "to": { "type": "string", "description": "Recipient member ID." },
+        "dataSpace": { "type": "string", "enum": ["invoicing", "identity", "data"], "description": "The data space / profile this message belongs to." },
+        "contentType": { "type": "string", "description": "Media type of the payload, e.g. application/json." },
+        "timestamp": { "type": "string", "format": "date-time", "description": "RFC3339 creation time (UTC)." }
+      }
+    },
+    "payload": { "description": "The data-space profile object (e.g. an invoice or identity attestation)." },
+    "signature": { "type": "string", "description": "Base64 Ed25519 signature over {header, payload}." }
+  }
+}

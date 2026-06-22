@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://idxa.africa/specs/invoice/invoice.profile.schema.json",
+  "title": "IDXA Invoicing Profile v0.1",
+  "description": "Minimal e-invoice payload carried in the IDXA envelope. Aligns conceptually with EN 16931 / Peppol BIS core fields; a working subset for the reference implementation.",
+  "type": "object",
+  "required": ["invoiceNumber", "issueDate", "currency", "supplier", "customer", "lines", "totals"],
+  "properties": {
+    "invoiceNumber": { "type": "string" },
+    "issueDate": { "type": "string", "format": "date" },
+    "dueDate": { "type": "string", "format": "date" },
+    "currency": { "type": "string", "description": "ISO 4217 code, e.g. NGN, KES, ZAR." },
+    "supplier": { "$ref": "#/$defs/party" },
+    "customer": { "$ref": "#/$defs/party" },
+    "lines": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["description", "quantity", "unitPrice"],
+        "properties": {
+          "description": { "type": "string" },
+          "quantity": { "type": "number" },
+          "unitPrice": { "type": "number" },
+          "taxPercent": { "type": "number" }
+        }
+      }
+    },
+    "totals": {
+      "type": "object",
+      "required": ["netAmount", "taxAmount", "grossAmount"],
+      "properties": {
+        "netAmount": { "type": "number" },
+        "taxAmount": { "type": "number" },
+        "grossAmount": { "type": "number" }
+      }
+    },
+    "payment": {
+      "type": "object",
+      "description": "Optional payment instruction enabling EMVCo QR / Request-to-Pay binding.",
+      "properties": {
+        "requestToPay": { "type": "boolean" },
+        "emvcoQr": { "type": "string" },
+        "reference": { "type": "string" }
+      }
+    },
+    "fiscal": {
+      "type": "object",
+      "description": "Optional fiscal fields, e.g. a VAT-lottery-eligible receipt identifier.",
+      "properties": {
+        "taxId": { "type": "string" },
+        "lotteryReceiptId": { "type": "string" }
+      }
+    }
+  },
+  "$defs": {
+    "party": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string" },
+        "taxId": { "type": "string" },
+        "country": { "type": "string", "description": "ISO 3166-1 alpha-2." },
+        "memberId": { "type": "string", "description": "IDXA member ID, if on-network." }
+      }
+    }
+  }
+}

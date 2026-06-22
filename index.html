@@ -98,6 +98,11 @@
   .card p{color:var(--muted);font-size:15px}
   .tag{display:inline-block;margin-top:14px;font-size:12px;font-weight:600;color:var(--teal);
     background:rgba(15,157,143,.1);padding:4px 10px;border-radius:6px}
+  a.reslink{display:block;color:inherit}
+  a.reslink h3{color:var(--indigo)}
+  a.reslink:hover h3{color:var(--teal)}
+  code{background:rgba(15,44,77,.07);padding:1px 6px;border-radius:5px;font-size:13px;
+    font-family:ui-monospace,Menlo,monospace}
 
   /* HOW IT WORKS — four corner */
   .corners{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:10px}
@@ -187,6 +192,7 @@
       <a href="#membership">Membership</a>
       <a href="#community">Community</a>
       <a href="#roadmap">Roadmap</a>
+      <a href="#resources">Resources</a>
     </div>
     <div class="nav-cta">
       <a class="btn-text navlinks" href="#" style="font-weight:500;color:var(--muted)">Sign in</a>
@@ -504,6 +510,62 @@
         <h4>Pan-African scale</h4>
         <p>Trust federation across national Hubs — one interoperable data ecosystem, 54 countries.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES / DEVELOPERS -->
+<section id="resources">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Resources · Developers</span>
+      <h2>The open-source system itself</h2>
+      <p>IDXA isn't a slide deck — it's running code. Read the specs, run the reference network on
+         your machine in one command, and start contributing. Everything is Apache-2.0.</p>
+    </div>
+    <div class="grid3">
+      <a class="card reslink" href="https://github.com/surdykbaba/idxa" target="_blank" rel="noopener">
+        <div class="ic">⌥</div>
+        <h3>GitHub repository →</h3>
+        <p>The full reference implementation — Registry, Member Node, signed envelopes — in Go.
+           Star it, fork it, open a PR.</p>
+        <span class="tag">surdykbaba/idxa</span>
+      </a>
+      <a class="card reslink" href="https://github.com/surdykbaba/idxa/blob/main/docs/QUICKSTART.md" target="_blank" rel="noopener">
+        <div class="ic">⚡</div>
+        <h3>Quickstart →</h3>
+        <p>Run a tiny IDXA network locally — a Registry and two nodes exchanging a signed invoice —
+           with <code>bash scripts/demo.sh</code>.</p>
+        <span class="tag">One command</span>
+      </a>
+      <a class="card reslink" href="https://github.com/surdykbaba/idxa/tree/main/specs" target="_blank" rel="noopener">
+        <div class="ic">📐</div>
+        <h3>The specs →</h3>
+        <p>JSON Schema for the message envelope and the invoicing &amp; identity profiles — the
+           standard anyone can implement.</p>
+        <span class="tag">Envelope · Invoice · Identity</span>
+      </a>
+      <a class="card reslink" href="https://github.com/surdykbaba/idxa/blob/main/docs/ARCHITECTURE.md" target="_blank" rel="noopener">
+        <div class="ic">🏗️</div>
+        <h3>Architecture →</h3>
+        <p>How the four-corner, federated trust model works: nodes, registry, Ed25519 signing and
+           verification — no central data store.</p>
+        <span class="tag">Trust model</span>
+      </a>
+      <a class="card reslink" href="IDXA-Whitepaper.docx" target="_blank" rel="noopener">
+        <div class="ic">📄</div>
+        <h3>Whitepaper →</h3>
+        <p>The Concept &amp; Founding Framework (v0.1) — vision, governance, data spaces and roadmap.
+           The recruiting document.</p>
+        <span class="tag">Download .docx</span>
+      </a>
+      <a class="card reslink" href="https://github.com/surdykbaba/idxa#readme" target="_blank" rel="noopener">
+        <div class="ic">🧑‍💻</div>
+        <h3>Start contributing →</h3>
+        <p>Pick a working group, run a node in the sandbox, or propose a change through the open
+           RFC process. Newcomers welcome.</p>
+        <span class="tag">Good first issues</span>
+      </a>
     </div>
   </div>
 </section>

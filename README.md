@@ -10,13 +10,34 @@ Inspired by the world's most successful interoperability initiatives —
 [X-Road](https://x-road.global), [Gaia-X](https://gaia-x.eu),
 [Peppol](https://peppol.org) and [MOSIP](https://mosip.io).
 
-## What's here
+🌍 **Website:** https://surdykbaba.github.io/idxa/
 
-| File | Description |
-|------|-------------|
-| `index.html` | The one-page website (self-contained, no build step). |
+## The reference implementation
+
+A small, runnable realisation of the four-corner, federated model — written in Go,
+standard-library only. It demonstrates the core trust properties; see
+[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+
+```bash
+bash scripts/demo.sh
+```
+
+Boots a Registry and two Member Nodes, sends a **signed** invoice from one to the
+other, and shows it arriving **verified**. Full walkthrough in
+[docs/QUICKSTART.md](docs/QUICKSTART.md).
+
+## Layout
+
+| Path | What it is |
+|------|-----------|
+| `cmd/registry` | The shared **Registry** (directory / trust list) — metadata + public keys only. |
+| `cmd/node` | A **Member Node** — the single gateway each participant runs. |
+| `internal/message` | The signed **envelope** (build / sign / verify). |
+| `internal/trust` | Ed25519 key primitives. |
+| `specs/` | JSON Schema: the envelope + invoicing & identity profiles. |
+| `scripts/demo.sh` | End-to-end local network demo. |
+| `index.html` | The project website (self-contained). |
 | `IDXA-Whitepaper.docx` | Concept & Founding Framework (v0.1 working draft). |
-| `build-whitepaper.js` | Generator for the whitepaper (`node build-whitepaper.js`). |
 
 ## The framework
 
@@ -24,10 +45,10 @@ Inspired by the world's most successful interoperability initiatives —
 - **Trust Framework** — verification, accreditation and conformance testing.
 - **Federation** — decentralised member nodes; no single point of control, no central data store.
 
-## Get involved
+## Status
 
-This is a working draft published openly for community review. Developers,
-providers, regulators and young technologists are all welcome.
+`v0.1` — a working draft and reference build, published openly for community
+review. Developers, providers, regulators and young technologists all welcome.
 
 ## License
 
