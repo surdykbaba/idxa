@@ -18,6 +18,17 @@ This builds the binaries, starts a Registry (`:8090`) and two nodes
 `acme-ng` to `globex-ke`, and prints the recipient's inbox showing the message
 arrived **verified**. Everything is torn down on exit.
 
+## Tamper-detection demo
+
+```bash
+bash scripts/tamper-demo.sh
+```
+
+Sends a correctly signed invoice (accepted, `HTTP 202`), then the **same message
+with its amount rewritten after signing** — which the receiver rejects with
+`HTTP 401 signature verification failed`. Proof that no field can be altered in
+transit without invalidating the signature.
+
 ## Run the pieces by hand
 
 ```bash
