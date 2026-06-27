@@ -22,7 +22,10 @@
     --bg-soft:#f2efe7;       /* deeper bone for alternating sections */
     --radius:8px;
     --maxw:1200px;
-    --accent-bg:#f4ec9f;     /* soft butter yellow accent band */
+    --brand-green:#16382e;   /* deep pine — primary brand dark */
+    --brand-green-2:#1d4a3c;
+    --cream:#efe6a4;         /* pale cream — brand accent / logo */
+    --accent-bg:#efe6a4;     /* facts band uses brand cream */
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
@@ -41,12 +44,12 @@
     border:1px solid var(--line);text-transform:uppercase;letter-spacing:.1em}
   .btn{display:inline-flex;align-items:center;gap:8px;font-weight:500;font-size:15px;
     padding:13px 24px;border-radius:6px;transition:.2s;cursor:pointer;border:1px solid transparent}
-  .btn-primary{background:var(--ink);color:var(--bg)}
-  .btn-primary:hover{background:#000}
+  .btn-primary{background:var(--brand-green);color:var(--cream)}
+  .btn-primary:hover{background:var(--brand-green-2)}
   .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
-  .btn-ghost:hover{background:var(--ink);color:var(--bg)}
-  .btn-dark{background:var(--ink);color:var(--bg)}
-  .btn-dark:hover{background:#000}
+  .btn-ghost:hover{background:var(--brand-green);color:var(--cream);border-color:var(--brand-green)}
+  .btn-dark{background:var(--brand-green);color:var(--cream)}
+  .btn-dark:hover{background:var(--brand-green-2)}
 
   /* NAV */
   header{position:sticky;top:0;z-index:50;background:rgba(250,248,243,.82);
@@ -55,11 +58,7 @@
   nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:18px}
   .brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:23px;color:var(--ink);
     flex:none;margin-right:6px;letter-spacing:.01em}
-  .logo{width:34px;height:34px;border-radius:9px;background:
-    linear-gradient(135deg,var(--indigo),var(--teal));position:relative;flex:none}
-  .logo::before,.logo::after{content:"";position:absolute;background:var(--gold);border-radius:2px}
-  .logo::before{width:14px;height:3px;top:12px;left:10px;transform:rotate(45deg)}
-  .logo::after{width:14px;height:3px;top:19px;left:10px;transform:rotate(-45deg)}
+  .logo{width:34px;height:34px;flex:none;display:block}
   .navlinks{display:flex;gap:4px;align-items:center;margin:0 auto}
   .navlinks a{font-size:14.5px;font-weight:500;color:var(--muted);white-space:nowrap;
     padding:8px 12px;border-radius:9px}
@@ -210,15 +209,15 @@
   .grid3b{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   @media(max-width:820px){.grid3b{grid-template-columns:1fr}}
   .tier{border:1px solid var(--line);border-radius:var(--radius);padding:34px 30px;background:var(--paper)}
-  .tier.feature{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-  .tier.feature p,.tier.feature li{color:#d9d6cc}
+  .tier.feature{background:var(--brand-green);color:var(--bg);border-color:var(--brand-green)}
+  .tier.feature p,.tier.feature li{color:#cdd8cf}
   .tier h3{font-size:23px;margin-bottom:6px;font-weight:500}
   .tier .who{font-size:14px;color:var(--muted);margin-bottom:22px}
-  .tier.feature .who{color:#a8a59a}
+  .tier.feature .who{color:#9fb1a4}
   .tier ul{list-style:none;display:flex;flex-direction:column;gap:12px;font-size:15px}
   .tier li{display:flex;gap:11px;align-items:flex-start;line-height:1.5}
   .tier li::before{content:"—";color:var(--teal);font-weight:500}
-  .tier.feature li::before{color:var(--gold)}
+  .tier.feature li::before{color:var(--cream)}
 
   /* WORKING GROUPS */
   .wg{display:flex;flex-wrap:wrap;gap:10px}
@@ -238,27 +237,26 @@
   .tstep p{font-size:14px;color:var(--muted);line-height:1.6}
 
   /* CTA band */
-  .cta{background:var(--ink);color:var(--bg);border-radius:var(--radius);
+  .cta{background:var(--brand-green);color:var(--bg);border-radius:var(--radius);
     padding:80px 56px;text-align:center;position:relative;overflow:hidden}
-  .cta h2{font-size:clamp(28px,3.6vw,44px);margin-bottom:16px;font-weight:500;color:var(--bg)}
-  .cta p{color:#cbc8bd;max-width:580px;margin:0 auto 32px;font-size:18px;line-height:1.6}
+  .cta h2{font-size:clamp(28px,3.6vw,44px);margin-bottom:16px;font-weight:700;color:var(--cream)}
+  .cta p{color:#c2d0c6;max-width:580px;margin:0 auto 32px;font-size:18px;line-height:1.6}
   .cta .hero-cta{justify-content:center}
-  .cta .btn-primary{background:var(--bg);color:var(--ink)}
-  .cta .btn-primary:hover{background:#fff}
+  .cta .btn-primary{background:var(--cream);color:var(--brand-green)}
+  .cta .btn-primary:hover{background:#f5eebb}
   .cta .btn-ghost{color:var(--bg);border-color:rgba(255,255,255,.4)}
   .cta .btn-ghost:hover{background:rgba(255,255,255,.12);color:var(--bg)}
 
   /* FOOTER */
-  footer{background:var(--bg-soft);color:var(--muted);padding:72px 0 36px;font-size:14px;
-    border-top:1px solid var(--line)}
+  footer{background:var(--brand-green);color:#9fb3a6;padding:72px 0 36px;font-size:14px}
   .fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px;margin-bottom:44px}
   @media(max-width:820px){.fgrid{grid-template-columns:1fr 1fr}}
-  footer .brand{color:var(--ink);margin-bottom:14px}
-  footer h5{color:var(--ink);font-family:'Inter',sans-serif;font-size:12px;margin-bottom:16px;
+  footer .brand{color:var(--cream);margin-bottom:14px}
+  footer h5{color:#e8ecdc;font-family:'Inter',sans-serif;font-size:12px;margin-bottom:16px;
     letter-spacing:.1em;text-transform:uppercase;font-weight:600}
-  footer a{display:block;margin-bottom:10px;color:var(--muted)}
-  footer a:hover{color:var(--ink)}
-  .fbottom{border-top:1px solid var(--line);padding-top:24px;display:flex;
+  footer a{display:block;margin-bottom:10px;color:#9fb3a6}
+  footer a:hover{color:var(--cream)}
+  .fbottom{border-top:1px solid rgba(239,230,164,.16);padding-top:24px;display:flex;
     justify-content:space-between;flex-wrap:wrap;gap:10px}
 </style>
 </head>
@@ -267,7 +265,7 @@
 
 <header id="hdr">
   <nav class="wrap">
-    <a class="brand" href="#"><span class="logo"></span> IEXA</a>
+    <a class="brand" href="#"><svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#16382e"/><g stroke="#efe6a4" stroke-width="2.4" stroke-linecap="round"><line x1="16" y1="5" x2="16" y2="11.5"/><line x1="16" y1="20.5" x2="16" y2="27"/><line x1="5" y1="16" x2="11.5" y2="16"/><line x1="20.5" y1="16" x2="27" y2="16"/><line x1="8.2" y1="8.2" x2="12.8" y2="12.8"/><line x1="19.2" y1="19.2" x2="23.8" y2="23.8"/><line x1="23.8" y1="8.2" x2="19.2" y2="12.8"/><line x1="12.8" y1="19.2" x2="8.2" y2="23.8"/></g></svg> IEXA</a>
     <div class="navlinks">
       <a href="#how">How it works</a>
       <a href="#exchange">Domains</a>
@@ -426,25 +424,25 @@
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">Data spaces</span>
-      <h2>Start with invoicing. Built to carry everything.</h2>
+      <h2>Start with Identity. Built to carry everything.</h2>
       <p>IEXA is one framework hosting many <b>data spaces</b> — sectoral ecosystems that share the
-         same trust framework and federation. We lead with the strongest regulatory tailwind —
-         e-invoicing — and extend from there.</p>
+         same trust framework and federation. We lead with verified <b>identity</b> — the foundation
+         every other exchange depends on — and extend from there.</p>
     </div>
     <div class="grid3">
       <div class="card">
-        <div class="ic">🧾</div>
-        <h3>IEXA · Invoicing</h3>
-        <p>Standardised e-invoice exchange between businesses, ERPs and tax authorities — the
-           wedge use case, live first.</p>
+        <div class="ic">🪪</div>
+        <h3>IEXA · Identity</h3>
+        <p>Privacy-preserving exchange of verified identity attributes and KYC credentials — the
+           wedge use case. Consent-driven, cryptographically signed proofs shared only with trusted
+           parties, interoperable with national identity systems.</p>
         <span class="tag">Available · v0.1</span>
       </div>
       <div class="card">
-        <div class="ic">🪪</div>
-        <h3>IEXA · Identity</h3>
-        <p>Privacy-preserving exchange of verified identity attributes and KYC credentials —
-           consent-driven, cryptographically signed proofs shared only with trusted parties,
-           interoperable with national identity systems.</p>
+        <div class="ic">🧾</div>
+        <h3>IEXA · Invoicing</h3>
+        <p>Standardised e-invoice exchange between businesses, ERPs and tax authorities, with a
+           strong regulatory tailwind across the continent.</p>
         <span class="tag">Available · v0.1</span>
       </div>
       <div class="card">
@@ -717,7 +715,7 @@
   <div class="wrap">
     <div class="fgrid">
       <div>
-        <div class="brand" style="font-size:20px"><span class="logo" style="display:inline-block;vertical-align:middle"></span> IEXA</div>
+        <div class="brand" style="font-size:20px"><svg class="logo" viewBox="0 0 32 32" aria-hidden="true" style="vertical-align:middle"><g stroke="#efe6a4" stroke-width="2.4" stroke-linecap="round"><line x1="16" y1="5" x2="16" y2="11.5"/><line x1="16" y1="20.5" x2="16" y2="27"/><line x1="5" y1="16" x2="11.5" y2="16"/><line x1="20.5" y1="16" x2="27" y2="16"/><line x1="8.2" y1="8.2" x2="12.8" y2="12.8"/><line x1="19.2" y1="19.2" x2="23.8" y2="23.8"/><line x1="23.8" y1="8.2" x2="19.2" y2="12.8"/><line x1="12.8" y1="19.2" x2="8.2" y2="23.8"/></g></svg> IEXA</div>
         <p style="max-width:300px">The Interoperability and Exchange Alliance — an open, community-governed
            framework for secure data exchange across the continent.</p>
       </div>
